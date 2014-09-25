@@ -12,7 +12,7 @@ leap $OPTS add-user --self
 leap $OPTS cert ca
 leap $OPTS cert csr
 leap $OPTS cert dh
-leap $OPTS node add pixelated ip_address:$(facter ipaddress)  services:webapp,mx,couchdb,soledad,openvpn tags:production
+leap $OPTS node add pixelated ip_address:$(facter ipaddress) openvpn.gateway_address:192.168.135.252 services:webapp,couchdb,soledad,openvpn tags:production
 sh -c 'cat /etc/ssh/ssh_host_ecdsa_key.pub | cut -d" " -f1,2 >> /home/leap/configuration/files/nodes/pixelated/pixelated_ssh.pub'
 echo '{ "webapp": { "admins": ["testadmin"] } }' > services/webapp.json
 
