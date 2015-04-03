@@ -18,26 +18,33 @@ from selenium.webdriver.common.by import By
 
 from behave import *
 from common import *
+from .page_objects import SignupPage
 from .page_objects import LoginPage
 from .page_objects import TagList
 
 import time
+
 
 @when(u'I visit the dispatcher')
 def step_impl(context):
     login_page = LoginPage(context)
     login_page.open()
 
+
 @then(u'I should see a login button')
 def step_impl(context):
     login_page = LoginPage(context)
     assert login_page.has_login_button
 
+
 @when(u'I login')
 def step_impl(context):
     login_page = LoginPage(context)
-    login_page.enter_username(random_username()).enter_password(random_password()).login()
+    login_page.enter_username(random_username()) \
+              .enter_password(random_password()) \
+              .login()
     login_page.wait_intersitial_page()
+
 
 @then(u'I see the inbox')
 def step_impl(context):
@@ -46,26 +53,32 @@ def step_impl(context):
     tag_list = TagList(context)
     assert tag_list.has_inbox_tag
 
+
 @when(u'I logout')
 def step_impl(context):
     context.browser.get(context.pixelated_url + 'auth/logout')
 
+
 @when(u'I visit the signup page')
 def step_impl(context):
-    context.browser.get(context.leap_url + 'signup')
+    signup_page = SignupPage(context)
+    signup_page.open()
+
 
 @then(u'I should see a signup button')
 def step_impl(context):
-    form = context.browser.find_element_by_name('button')
+    signup_page = SignupPage(context)
+    assert signup_page.has_signup_button
+
 
 @when(u'I register')
 def step_impl(context):
-    fill_by_xpath(context, '//*[@name="user[login]"]', random_username())
-    fill_by_xpath(context, '//*[@name="user[password]"]', random_password())
-    fill_by_xpath(context, '//*[@name="user[password_confirmation]"]', random_password())
-    context.browser.find_element_by_name("button").click()
+    signup_page = SignupPage(context)
+    signup_page.enter_username(random_username()) \
+               .enter_password(random_password()) \
+               .signup()
+
 
 @then(u'I see the control panel')
 def step_impl(context):
-    find_element_containing_text(context,'user control panel')
-    context.browser.save_screenshot('/tmp/screenshot.png')
+    find_element_containing_text(context, 'user control panel')

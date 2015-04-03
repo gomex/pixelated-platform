@@ -16,6 +16,7 @@
 
 
 from base_page_object import BasePageObject
+from signup_page import SignupPage
 from login_page import LoginPage
 from compose_box import ComposeBox
 from maillist_actions import MailListActions
