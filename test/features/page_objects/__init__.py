@@ -15,8 +15,9 @@
 # along with Pixelated. If not, see <http://www.gnu.org/licenses/>.
 
 
+from base_page_object import BasePageObject
 from login_page import LoginPage
 from compose_box import ComposeBox
-from base_page_object import BasePageObject
 from maillist_actions import MailListActions
 from pixelated_page import PixelatedPage
+from tag_list import TagList

@@ -20,6 +20,7 @@ from selenium.common.exceptions import TimeoutException
 
 class LoginPage(BasePageObject):
     def __init__(self, context, timeout=10):
+        self._context = context
         self._locators = {
             'username': 'input#email',
             'password': 'input#password',
@@ -39,6 +40,16 @@ class LoginPage(BasePageObject):
     def login(self):
         self._login_button().click()
         return self
+
+    def open(self):
+        self._context.browser.get(self._context.pixelated_url)
+        return self
+
+    @property
+    def has_login_button(self):
+        if (self._login_button()):
+            return True
+        return False
 
     def _username_field(self):
         return self._find_element_by_locator(self._locators['username'])

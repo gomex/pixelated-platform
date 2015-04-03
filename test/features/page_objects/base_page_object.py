@@ -40,6 +40,10 @@ class BasePageObject(object):
         self._wait_until(EC.visibility_of_element_located(locator_tuple), timeout or self.timeout)
         return self.context.browser.find_elements_by_xpath(xpath)
 
+    def _fill_by_xpath(context, xpath, text):
+        field = context.browser.find_element_by_xpath(xpath)
+        field.send_keys(text)
+
     def _wait_element_to_be_removed(self, locator, timeout=None):
         locator_tuple = (By.CSS_SELECTOR, locator)
         self._wait_until(EC.invisibility_of_element_located(locator_tuple), timeout or self.timeout)

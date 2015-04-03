@@ -17,17 +17,17 @@
 Feature: account
 
   @register
-  Scenario: user goes to signup-page
-    When I visit the signup-page
+  Scenario: user goes to signup page
+    When I visit the signup page
     Then I should see a signup button
 
   @register
-  Scenario: user goes to signup-page and registers new account
-    When I visit the signup-page
+  Scenario: user goes to signup page and registers new account
+    When I visit the signup page
     And  I register
-    Then I see the control-panel
+    Then I see the control panel
 
-  @login 
+  @login
   Scenario: user goes to dispatcher
     When I visit the dispatcher
     Then I should see a login button
@@ -40,5 +40,5 @@ Feature: account
 
   @login
   Scenario: user logs out
-    When  I logout
+    When I logout
     Then I should see a login button
