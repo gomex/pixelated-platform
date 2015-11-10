@@ -57,8 +57,16 @@ git init
 git add .
 git commit -m"configured provider"
 
-git submodule add https://github.com/pixelated/pixelated-platform.git files/puppet
-git add files/puppet
+
+mkdir -p file/puppet/modules/custom/manifests
+cat << EOF > files/puppet/modules/custom/manifests/init.pp
+class custom {
+  include pixelated::dispatcher
+}
+EOF
+
+git submodule add https://github.com/pixelated/puppet-pixelated.git files/puppet/modules
+git add files/puppet/modules
 git commit -m 'added pixelated submodule'
 
 leap $LEAP_OPTS node init pixelated
