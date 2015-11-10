@@ -58,7 +58,7 @@ git add .
 git commit -m"configured provider"
 
 
-mkdir -p file/puppet/modules/custom/manifests
+mkdir -p files/puppet/modules/custom/manifests
 cat << EOF > files/puppet/modules/custom/manifests/init.pp
 class custom {
   include pixelated::dispatcher
