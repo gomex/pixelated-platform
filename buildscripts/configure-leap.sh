@@ -65,7 +65,7 @@ class custom {
 }
 EOF
 
-git submodule add https://github.com/pixelated/puppet-pixelated.git files/puppet/modules
+git submodule add https://github.com/pixelated/puppet-pixelated.git files/puppet/modules/pixelated
 git add files/puppet/modules
 git commit -m 'added pixelated submodule'
 
