@@ -18,9 +18,8 @@ It is the objective of the Pixelated Platform to provide a simple way to install
 
 Pixelated is built on top of LEAP, so in order to have a Pixelated Platform, you need to have a LEAP Platform. There are 2 ways of installing the Pixelated Platform:
 
-1. Setup your own ["Pixelated Provider"](https://github.com/pixelated-project/pixelated-platform#how-to-setup-your-own-pixelated-platform), which is a LEAP provider with the Pixelated Platform already setup on it (recommended), or
-2. Have an existing installation of a [LEAP provider](https://github.com/pixelated-project/pixelated-platform#installing-a-leap-provider) and adding the Pixelated Platform to it
-
+1. Setup your own ["Pixelated Provider"](https://github.com/pixelated/pixelated-platform#1-set-up-your-own-pixelated-platform), which is a LEAP provider with the Pixelated Platform already setup on it (recommended), or
+2. Have an existing installation of a [LEAP provider](https://github.com/pixelated/pixelated-platform#2-installing-on-a-leap-provider) and adding the Pixelated Platform to it
 
 ## 1. Set up your own Pixelated Platform
 
